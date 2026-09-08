@@ -1,0 +1,20 @@
+---
+
+{{ if and (ne .Vars.win25cis_system_role "domaincontroller") .Vars.win25cis_level_1 }}
+  {{ if .Vars.win25cis_rule_2_2_39 }}
+    {{ if eq .Vars.win25cis_system_role "memberserver" }}
+file:
+  win25cis_2_2_39_sesecurityprivilege:
+    title: "2.2.39 | Ensure 'Manage auditing and security log' is set to 'Administrators' (MS only) | SeSecurityPrivilege"
+    path: '{{ .Vars.win25cis_snapshot_dir }}\PrivilegeRights.SeSecurityPrivilege'
+    exists: true
+    contents:
+      - '/^S-1-5-32-544$/'
+    meta:
+      memberserver: 1
+      server: 1
+      CIS_ID:
+        - 2.2.39
+    {{ end }}
+  {{ end }}
+{{ end }}

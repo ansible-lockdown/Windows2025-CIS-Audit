@@ -1,0 +1,18 @@
+---
+
+{{ if .Vars.win25cis_level_1 }}
+  {{ if .Vars.win25cis_rule_18_5_1 }}
+registry:
+  HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\AutoAdminLogon:
+    title: "18.5.1 | Ensure 'MSS: (AutoAdminLogon) Enable Automatic Logon' is set to 'Disabled' | AutoAdminLogon"
+    exists: true
+    value: "0"
+    type: REG_SZ
+    meta:
+      domaincontroller: 1
+      memberserver: 1
+      server: 1
+      CIS_ID:
+        - 18.5.1
+  {{ end }}
+{{ end }}

@@ -1,0 +1,20 @@
+---
+
+{{ if and (eq .Vars.win25cis_system_role "domaincontroller") .Vars.win25cis_level_1 }}
+  {{ if .Vars.win25cis_rule_17_4_2 }}
+    {{ if eq .Vars.win25cis_system_role "domaincontroller" }}
+file:
+  win25cis_17_4_2_0cce923c_69ae_11d9_bed3_505054503030:
+    title: "17.4.2 | Ensure 'Audit Directory Service Changes' is set to include 'Success' (DC only) | {0cce923c-69ae-11d9-bed3-505054503030}"
+    path: '{{ .Vars.win25cis_snapshot_dir }}\AuditPolicy.17.4.2'
+    exists: true
+    contents:
+      - '/^[13]$/'
+    meta:
+      domaincontroller: 1
+      server: 1
+      CIS_ID:
+        - 17.4.2
+    {{ end }}
+  {{ end }}
+{{ end }}

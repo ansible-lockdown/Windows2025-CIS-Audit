@@ -1,0 +1,18 @@
+---
+
+{{ if .Vars.win25cis_level_1 }}
+  {{ if .Vars.win25cis_rule_18_10_4_2 }}
+registry:
+  HKLM\SOFTWARE\Policies\Microsoft\Windows\Appx\DisablePerUserUnsignedPackagesByDefault:
+    title: "18.10.4.2 | Ensure 'Not allow per-user unsigned packages to install by default (requires explicitly allow per install)' is set to 'Enabled' | DisablePerUserUnsignedPackagesByDefault"
+    exists: true
+    value: 1
+    type: REG_DWORD
+    meta:
+      domaincontroller: 1
+      memberserver: 1
+      server: 1
+      CIS_ID:
+        - 18.10.4.2
+  {{ end }}
+{{ end }}

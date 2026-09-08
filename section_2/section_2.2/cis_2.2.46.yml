@@ -1,0 +1,19 @@
+---
+
+{{ if .Vars.win25cis_level_1 }}
+  {{ if .Vars.win25cis_rule_2_2_46 }}
+file:
+  win25cis_2_2_46_serestoreprivilege:
+    title: "2.2.46 | Ensure 'Restore files and directories' is set to 'Administrators' | SeRestorePrivilege"
+    path: '{{ .Vars.win25cis_snapshot_dir }}\PrivilegeRights.SeRestorePrivilege'
+    exists: true
+    contents:
+      - '/^S-1-5-32-544$/'
+    meta:
+      domaincontroller: 1
+      memberserver: 1
+      server: 1
+      CIS_ID:
+        - 2.2.46
+  {{ end }}
+{{ end }}

@@ -1,0 +1,20 @@
+---
+
+{{ if and (eq .Vars.win25cis_system_role "domaincontroller") .Vars.win25cis_level_1 }}
+  {{ if .Vars.win25cis_rule_17_1_3 }}
+    {{ if eq .Vars.win25cis_system_role "domaincontroller" }}
+file:
+  win25cis_17_1_3_0cce9240_69ae_11d9_bed3_505054503030:
+    title: "17.1.3 | Ensure 'Audit Kerberos Service Ticket Operations' is set to 'Success and Failure' (DC Only) | {0cce9240-69ae-11d9-bed3-505054503030}"
+    path: '{{ .Vars.win25cis_snapshot_dir }}\AuditPolicy.17.1.3'
+    exists: true
+    contents:
+      - '/^3$/'
+    meta:
+      domaincontroller: 1
+      server: 1
+      CIS_ID:
+        - 17.1.3
+    {{ end }}
+  {{ end }}
+{{ end }}

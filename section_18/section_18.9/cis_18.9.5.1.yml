@@ -1,0 +1,18 @@
+---
+
+{{ if .Vars.win25cis_ngws }}
+  {{ if .Vars.win25cis_rule_18_9_5_1 }}
+registry:
+  HKLM\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard\EnableVirtualizationBasedSecurity:
+    title: "18.9.5.1 | (NG) Ensure 'Turn On Virtualization Based Security' is set to 'Enabled' | EnableVirtualizationBasedSecurity"
+    exists: true
+    value: 1
+    type: REG_DWORD
+    meta:
+      domaincontroller: 1
+      memberserver: 1
+      server: 1
+      CIS_ID:
+        - 18.9.5.1
+  {{ end }}
+{{ end }}

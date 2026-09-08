@@ -1,0 +1,20 @@
+---
+
+{{ if and (eq .Vars.win25cis_system_role "domaincontroller") .Vars.win25cis_level_2 }}
+  {{ if .Vars.win25cis_rule_2_2_37 }}
+    {{ if eq .Vars.win25cis_system_role "domaincontroller" }}
+file:
+  win25cis_2_2_37_sebatchlogonright:
+    title: "2.2.37 | Ensure 'Log on as a batch job' is set to 'Administrators' (DC Only) | SeBatchLogonRight"
+    path: '{{ .Vars.win25cis_snapshot_dir }}\PrivilegeRights.SeBatchLogonRight'
+    exists: true
+    contents:
+      - '/^S-1-5-32-544$/'
+    meta:
+      domaincontroller: 2
+      server: 2
+      CIS_ID:
+        - 2.2.37
+    {{ end }}
+  {{ end }}
+{{ end }}

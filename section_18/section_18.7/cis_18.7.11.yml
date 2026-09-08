@@ -1,0 +1,18 @@
+---
+
+{{ if .Vars.win25cis_level_1 }}
+  {{ if .Vars.win25cis_rule_18_7_11 }}
+registry:
+  HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Printers\CopyFilesPolicy:
+    title: "18.7.11 | Ensure 'Manage processing of Queue-specific files' is set to 'Enabled: Limit Queue-specific files to Color profiles' | CopyFilesPolicy"
+    exists: true
+    value: 1
+    type: REG_DWORD
+    meta:
+      domaincontroller: 1
+      memberserver: 1
+      server: 1
+      CIS_ID:
+        - 18.7.11
+  {{ end }}
+{{ end }}

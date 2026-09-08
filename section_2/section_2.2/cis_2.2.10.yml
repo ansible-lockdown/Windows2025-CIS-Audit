@@ -1,0 +1,20 @@
+---
+
+{{ if and (ne .Vars.win25cis_system_role "domaincontroller") .Vars.win25cis_level_1 }}
+  {{ if .Vars.win25cis_rule_2_2_10 }}
+    {{ if eq .Vars.win25cis_system_role "memberserver" }}
+file:
+  win25cis_2_2_10_seremoteinteractivelogonright:
+    title: "2.2.10 | Ensure 'Allow log on through Remote Desktop Services' is set to 'Administrators, Remote Desktop Users' (MS only) | SeRemoteInteractiveLogonRight"
+    path: '{{ .Vars.win25cis_snapshot_dir }}\PrivilegeRights.SeRemoteInteractiveLogonRight'
+    exists: true
+    contents:
+      - '/^S-1-5-32-544,S-1-5-32-555$/'
+    meta:
+      memberserver: 1
+      server: 1
+      CIS_ID:
+        - 2.2.10
+    {{ end }}
+  {{ end }}
+{{ end }}

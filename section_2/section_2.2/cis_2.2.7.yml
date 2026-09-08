@@ -1,0 +1,20 @@
+---
+
+{{ if and (eq .Vars.win25cis_system_role "domaincontroller") .Vars.win25cis_level_1 }}
+  {{ if .Vars.win25cis_rule_2_2_7 }}
+    {{ if eq .Vars.win25cis_system_role "domaincontroller" }}
+file:
+  win25cis_2_2_7_seinteractivelogonright:
+    title: "2.2.7 | Ensure 'Allow log on locally' is set to 'Administrators, ENTERPRISE DOMAIN CONTROLLERS' (DC only) | SeInteractiveLogonRight"
+    path: '{{ .Vars.win25cis_snapshot_dir }}\PrivilegeRights.SeInteractiveLogonRight'
+    exists: true
+    contents:
+      - '/^S-1-5-32-544,S-1-5-9$/'
+    meta:
+      domaincontroller: 1
+      server: 1
+      CIS_ID:
+        - 2.2.7
+    {{ end }}
+  {{ end }}
+{{ end }}

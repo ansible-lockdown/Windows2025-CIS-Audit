@@ -1,0 +1,19 @@
+---
+
+{{ if .Vars.win25cis_level_1 }}
+  {{ if .Vars.win25cis_rule_2_2_4 }}
+file:
+  win25cis_2_2_4_setcbprivilege:
+    title: "2.2.4 | Ensure 'Act as part of the operating system' is set to 'No One' | SeTcbPrivilege"
+    path: '{{ .Vars.win25cis_snapshot_dir }}\PrivilegeRights.SeTcbPrivilege'
+    exists: true
+    contents:
+      - '/^NONE$/'
+    meta:
+      domaincontroller: 1
+      memberserver: 1
+      server: 1
+      CIS_ID:
+        - 2.2.4
+  {{ end }}
+{{ end }}

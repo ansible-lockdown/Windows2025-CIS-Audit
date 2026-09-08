@@ -1,0 +1,20 @@
+---
+
+{{ if and (eq .Vars.win25cis_system_role "domaincontroller") .Vars.win25cis_level_1 }}
+  {{ if .Vars.win25cis_rule_2_2_21 }}
+    {{ if eq .Vars.win25cis_system_role "domaincontroller" }}
+file:
+  win25cis_2_2_21_sedenynetworklogonright:
+    title: "2.2.21 | Ensure 'Deny access to this computer from the network' to include 'Guests' (DC only) | SeDenyNetworkLogonRight"
+    path: '{{ .Vars.win25cis_snapshot_dir }}\PrivilegeRights.SeDenyNetworkLogonRight'
+    exists: true
+    contents:
+      - '/^(.*,)?S-1-5-32-546(,.*)?$/'
+    meta:
+      domaincontroller: 1
+      server: 1
+      CIS_ID:
+        - 2.2.21
+    {{ end }}
+  {{ end }}
+{{ end }}

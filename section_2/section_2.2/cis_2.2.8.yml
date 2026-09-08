@@ -1,0 +1,20 @@
+---
+
+{{ if and (ne .Vars.win25cis_system_role "domaincontroller") .Vars.win25cis_level_1 }}
+  {{ if .Vars.win25cis_rule_2_2_8 }}
+    {{ if eq .Vars.win25cis_system_role "memberserver" }}
+file:
+  win25cis_2_2_8_seinteractivelogonright:
+    title: "2.2.8 | Ensure 'Allow log on locally' is set to 'Administrators' (MS only) | SeInteractiveLogonRight"
+    path: '{{ .Vars.win25cis_snapshot_dir }}\PrivilegeRights.SeInteractiveLogonRight'
+    exists: true
+    contents:
+      - '/^S-1-5-32-544$/'
+    meta:
+      memberserver: 1
+      server: 1
+      CIS_ID:
+        - 2.2.8
+    {{ end }}
+  {{ end }}
+{{ end }}

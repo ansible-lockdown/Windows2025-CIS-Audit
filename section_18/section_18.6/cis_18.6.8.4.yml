@@ -1,0 +1,18 @@
+---
+
+{{ if .Vars.win25cis_level_1 }}
+  {{ if .Vars.win25cis_rule_18_6_8_4 }}
+registry:
+  HKLM\SOFTWARE\Policies\Microsoft\Windows\LanmanWorkstation\AllowInsecureGuestAuth:
+    title: "18.6.8.4 | Ensure 'Enable insecure guest logons' is set to 'Disabled' | AllowInsecureGuestAuth"
+    exists: true
+    value: 0
+    type: REG_DWORD
+    meta:
+      domaincontroller: 1
+      memberserver: 1
+      server: 1
+      CIS_ID:
+        - 18.6.8.4
+  {{ end }}
+{{ end }}

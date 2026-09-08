@@ -1,0 +1,19 @@
+---
+
+{{ if .Vars.win25cis_level_1 }}
+  {{ if .Vars.win25cis_rule_2_2_1 }}
+file:
+  win25cis_2_2_1_setrustedcredmanaccessprivilege:
+    title: "2.2.1 | Ensure 'Access Credential Manager as a trusted caller' is set to 'No One' | SeTrustedCredManAccessPrivilege"
+    path: '{{ .Vars.win25cis_snapshot_dir }}\PrivilegeRights.SeTrustedCredManAccessPrivilege'
+    exists: true
+    contents:
+      - '/^NONE$/'
+    meta:
+      domaincontroller: 1
+      memberserver: 1
+      server: 1
+      CIS_ID:
+        - 2.2.1
+  {{ end }}
+{{ end }}

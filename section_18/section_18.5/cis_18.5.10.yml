@@ -1,0 +1,18 @@
+---
+
+{{ if .Vars.win25cis_level_2 }}
+  {{ if .Vars.win25cis_rule_18_5_10 }}
+registry:
+  HKLM\SYSTEM\CurrentControlSet\Services\TCPIP6\Parameters\TcpMaxDataRetransmissions:
+    title: "18.5.10 | Ensure 'MSS: (TcpMaxDataRetransmissions IPv6) How many times unacknowledged data is retransmitted' is set to 'Enabled: 3' | TcpMaxDataRetransmissions"
+    exists: true
+    value: 3
+    type: REG_DWORD
+    meta:
+      domaincontroller: 2
+      memberserver: 2
+      server: 2
+      CIS_ID:
+        - 18.5.10
+  {{ end }}
+{{ end }}

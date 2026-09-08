@@ -1,0 +1,18 @@
+---
+
+{{ if .Vars.win25cis_level_1 }}
+  {{ if .Vars.win25cis_rule_18_9_19_7 }}
+registry:
+  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\DisableBkGndGroupPolicy\DisableBkGndGroupPolicy:
+    title: "18.9.19.7 | Ensure 'Turn off background refresh of Group Policy' is set to 'Disabled' | DisableBkGndGroupPolicy"
+    exists: true
+    value: 0
+    type: REG_DWORD
+    meta:
+      domaincontroller: 1
+      memberserver: 1
+      server: 1
+      CIS_ID:
+        - 18.9.19.7
+  {{ end }}
+{{ end }}
