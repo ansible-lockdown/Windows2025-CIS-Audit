@@ -9,7 +9,7 @@ file:
     path: '{{ .Vars.win25cis_snapshot_dir }}\PrivilegeRights.SeImpersonatePrivilege'
     exists: true
     contents:
-      - '/^S-1-5-19,S-1-5-20,S-1-5-32-544,S-1-5-32-568,S-1-5-6$/'
+      - '/^S-1-5-19,S-1-5-20,S-1-5-32-544(,S-1-5-32-568)?,S-1-5-6$/'
     meta:
       memberserver: 1
       server: 1

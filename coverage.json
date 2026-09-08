@@ -386,7 +386,7 @@
     "resources": [
       "file"
     ],
-    "hand_finish": false,
+    "hand_finish": true,
     "reason": null
   },
   {
@@ -568,7 +568,7 @@
     "resources": [
       "file"
     ],
-    "hand_finish": false,
+    "hand_finish": true,
     "reason": null
   },
   {
@@ -626,7 +626,7 @@
     "resources": [
       "file"
     ],
-    "hand_finish": false,
+    "hand_finish": true,
     "reason": null
   },
   {

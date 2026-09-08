@@ -9,7 +9,7 @@ file:
     path: '{{ .Vars.win25cis_snapshot_dir }}\PrivilegeRights.SeSecurityPrivilege'
     exists: true
     contents:
-      - '/^NAME:Exchange Servers,S-1-5-32-544$/'
+      - '/^(NAME:Exchange Servers,)?S-1-5-32-544$/'
     meta:
       domaincontroller: 1
       server: 1

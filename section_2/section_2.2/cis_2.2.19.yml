@@ -9,7 +9,7 @@ file:
     path: '{{ .Vars.win25cis_snapshot_dir }}\PrivilegeRights.SeCreateSymbolicLinkPrivilege'
     exists: true
     contents:
-      - '/^S-1-5-32-544,S-1-5-83-0$/'
+      - '/^S-1-5-32-544(,S-1-5-83-0)?$/'
     meta:
       memberserver: 1
       server: 1
