@@ -6,6 +6,12 @@
 
 [Centre For Internet Security]
 
+**This audit component is in beta while we gather feedback.** It is usable and its
+results are meaningful, and we would like to hear how it behaves on your estate -
+what it gets wrong, what it reports that you did not expect, and what is missing.
+Please raise an issue, or come and talk to us on the [Discord Server](https://www.lockdownenterprise.com/discord).
+Expect the specs and the variables they read to change in response.
+
 This repository is a set of configuration files and directories to run the audit
 of the relevant benchmark of Windows Server 2025, as a member server or as a
 domain controller.
@@ -172,3 +178,34 @@ part is matched optionally rather than required.
 2.2.19, 2.2.33, 2.2.38, 2.3.1.3, 2.3.1.4
 
 <!-- END COVERAGE -->
+
+## Support
+
+[Discord Community Discussions]
+
+[Enterprise Support]
+
+[MindPoint Group]
+
+## Contributing
+
+Bug reports and feature requests are welcome from everyone, please raise an issue.
+
+Pull requests are accepted from approved contributors only. To be onboarded, join the [Discord Server](https://www.lockdownenterprise.com/discord) and request contributor access. See [CONTRIBUTING.md](CONTRIBUTING.md) for the full process.
+
+## Links and Further information
+
+- [Centre For Internet Security]
+
+<!----
+README Links
+---->
+
+[benchmark-type]: CIS
+[OS-VERSION]: Windows2025
+[os-type]: Windows
+[Centre For Internet Security]: https://www.cisecurity.org
+[Read the Docs - Audit]: https://ansible-lockdown.readthedocs.io/en/latest/audit/getting-started-audit.html
+[MindPoint Group]: https://mindpointgroup.com/cybersecurity-consulting/automate/baseline-modernization#GH_LockdownReadMe
+[Discord Community Discussions]: https://www.lockdownenterprise.com/discord
+[Enterprise Support]: https://lockdownenterprise.com#GH_LockdownReadMe
