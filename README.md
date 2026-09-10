@@ -57,7 +57,8 @@ Two consequences worth stating plainly, both proven against live hosts:
   secedit backed section 1 controls cannot hold locally there. The remediation
   role skips them and warns; this audit skips asserting them for the same
   reason. To meet CIS section 1 on a member server, set it in the Default Domain
-  Policy.
+  Policy. 2.3.11.6 (`ForceLogoffWhenHourExpire`) is also a `[System Access]`
+  value the Default Domain Policy sets, so it is skipped the same way.
 - **Group Policy outranks a registry write on a domain controller.** Control
   2.3.5.4 applies and is then reverted at the next policy refresh. It is
   expected to fail on a DC hardened by the remediation role; set it in the
