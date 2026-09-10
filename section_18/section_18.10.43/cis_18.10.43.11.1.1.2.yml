@@ -14,5 +14,8 @@ registry:
       server: 1
       CIS_ID:
         - 18.10.43.11.1.1.2
+      NIST800-53R5:
+        - AC-7
+        - SI-4
   {{ end }}
 {{ end }}

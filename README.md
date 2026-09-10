@@ -55,8 +55,8 @@ Two consequences worth stating plainly, both proven against live hosts:
 - **Account policy is domain scoped.** On a domain joined host the Default
   Domain Policy overwrites local `[System Access]` at every refresh, so the ten
   secedit backed section 1 controls cannot hold locally there. The remediation
-  role skips them and warns; this audit skips asserting them for the same
-  reason. To meet CIS section 1 on a member server, set it in the Default Domain
+  role skips them and warns; this audit reports them as skipped, with the
+  reason in `meta.skip_reason`, so the count still adds up. To meet CIS section 1 on a member server, set it in the Default Domain
   Policy. 2.3.11.6 (`ForceLogoffWhenHourExpire`) is also a `[System Access]`
   value the Default Domain Policy sets, so it is skipped the same way.
 - **Group Policy outranks a registry write on a domain controller.** Control

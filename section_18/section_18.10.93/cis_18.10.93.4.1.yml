@@ -14,6 +14,9 @@ registry:
       server: 1
       CIS_ID:
         - 18.10.93.4.1
+      NIST800-53R5:
+        - CM-7(5)
+        - CM-10
   HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\ManagePreviewBuildsPolicyValue:
     title: "18.10.93.4.1 | Ensure 'Manage preview builds' is set to 'Disabled' | ManagePreviewBuildsPolicyValue"
     exists: true
@@ -25,5 +28,8 @@ registry:
       server: 1
       CIS_ID:
         - 18.10.93.4.1
+      NIST800-53R5:
+        - CM-7(5)
+        - CM-10
   {{ end }}
 {{ end }}

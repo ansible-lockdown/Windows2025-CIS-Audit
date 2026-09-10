@@ -2,7 +2,6 @@
 
 {{ if .Vars.win25cis_level_1 }}
   {{ if .Vars.win25cis_rule_2_3_11_6 }}
-    {{ if eq .Vars.win25cis_system_role "standalone" }}
 file:
   win25cis_2_3_11_6_forcelogoffwhenhourexpire:
     title: "2.3.11.6 | Ensure 'Network security: Force logoff when logon hours expire' is set to 'Enabled' | ForceLogoffWhenHourExpire"
@@ -10,12 +9,15 @@ file:
     exists: true
     contents:
       - '/^1$/'
+    skip: {{ if eq .Vars.win25cis_system_role "standalone" }}false{{ else }}true{{ end }}
     meta:
+      skip_reason: "domain scoped - on a domain joined host the Default Domain Policy sets this [System Access] value, so the role does not apply it"
       domaincontroller: 1
       memberserver: 1
       server: 1
       CIS_ID:
         - 2.3.11.6
-    {{ end }}
+      NIST800-53R5:
+        - AC-2(12)
   {{ end }}
 {{ end }}
