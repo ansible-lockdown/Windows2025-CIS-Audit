@@ -60,8 +60,8 @@ Two consequences worth stating plainly, both proven against live hosts:
   Policy.
 - **Group Policy outranks a registry write on a domain controller.** Control
   2.3.5.4 applies and is then reverted at the next policy refresh. It is
-  expected to fail on a DC hardened through the Ansible path; apply it through
-  the GPO path instead.
+  expected to fail on a DC hardened by the remediation role; set it in the
+  Default Domain Controllers Policy instead.
 
 Controls that cannot be asserted are recorded in `coverage.json` with a reason
 code rather than being given an assertion that always passes. The table below is
